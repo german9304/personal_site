@@ -1,0 +1,140 @@
+---
+title: 'javascript: functions'
+date: '2020-01-13'
+description: 'In this blog I will write about arrow and Functions in js.'
+---
+
+**Functions** in javascript are an important block of scope in the language. They are fundamental to create reausable code and declare private pieces of code.
+
+There are two types of functions:
+
+- Arrow or flat functions.
+- functions declared with **Function** keyword.
+
+## Properties both type of functions (arrow, function) share:
+
+Important functions characteristics are **scope**, **hosting**, **this** etc.
+
+**Scope**
+
+An important point to note is that anything that it is declared inside functions becomes private within the function, so nothing can be accessed outside the function. This is useful because you know that declaring variables or any pieace of code belongs to the function only.
+
+```js
+function privateFunc() {
+  var a = 'this is private'; // highlight-line
+
+  // This is also private
+  function inner() {} // highlight-line
+}
+
+console.log(a); // this will be undefined
+console.log(inner()); // this will be undefined
+```
+
+Function declarations are small useful pieces of code. These are defined with the keyword **function**, name of function after it and parameters inside parenthesis, like below.
+
+```javascript
+function myFunction(params) {
+  // code goes here
+}
+```
+
+**Hoisting**
+
+Hoisting is when function declarations or variables are moved from where they appear in the code to the top by the compiler. This means functions can be declared anywhere on the code and still be defined.
+
+For example this:
+
+```js
+foo();
+
+function foo() {}
+```
+
+Is the same as:
+
+```js
+function foo() {}
+
+foo();
+```
+
+**this**
+
+Someone would think that the this keyword bound to the function, however in some cases this is not true as sometimes **this** gets lets when declaring inside a function.
+
+```js
+const person = {
+  name: 'john',
+  Name: function() {
+    return this.name; // highlight-line
+  },
+};
+
+let name = person.Name;
+
+console.log(name()); // undefined as this is not bind to the object
+```
+
+One way to fix this is to use the bind property from the function,
+this way the function will use the **this** from the given object passed to bind.
+
+```js
+const person = {
+  name: 'john',
+  Name: function() {
+    return this.name; // highlight-line
+  },
+};
+
+let name = person.Name.bind(person); // highlight-line
+
+console.log(name()); // undefined as this is not bind to the object
+```
+
+```js
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.Name = this.Name.bind(this); // highlight-line
+  }
+
+  Name() {
+    return this.name;
+  }
+}
+
+const p = new Person('john', 32);
+
+const name = p.Name;
+
+console.log(name()); // undefined as this is not bind to the object
+```
+
+**_When dealing with this and functions we should be aware of this._**
+
+However, with the new arrow functions (I will explain later about this type)
+
+## Arrow functions
+
+Something to note here is that **arrow functions were never meant to replace function declarations**.
+
+Arrow functions are a short way to declare functions since the syntax is short, however they lack important properties that functions declarations have, for instance: **this** keyword and lexical scope.
+
+Here is the syntax:
+
+```javascript
+const myFunction = () => '';
+```
+
+Return is implicit when declaring arrow functions, this means the return keyword should not be declared when writing functions like the above.
+
+However, when arrow functions grow these could be declared as below:
+brakets after the arrow and return keyword should be declared.
+
+```js
+const myFunction = () => {
+  return '';
+};
+```

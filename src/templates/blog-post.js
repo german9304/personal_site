@@ -7,19 +7,38 @@ import SEO from '../components/seo';
 import { rhythm, scale } from '../utils/typography';
 
 const PostStyles = styled.div`
+  * {
+    box-sizing: border-box;
+  }
   /* padding: 1em; */
+  p {
+    padding: 0;
+    margin-bottom: 1em;
+  }
   h2 {
     padding: 0;
     margin: 0.5em 0;
   }
-  div[data-language] pre {
-    border-radius: 10px;
+  ul,
+  li {
+    padding: 0;
+    margin-left: 1em;
+    list-style: square;
   }
+
   div[data-language] pre span {
     font-size: 0.85rem;
   }
+  pre[class*='language-'] {
+    overflow: auto;
+    border-radius: 10px;
+    padding: 1.3125rem;
+  }
+
   .gatsby-highlight-code-line {
     background-color: #022a4b;
+    margin-right: -1.3125rem;
+    margin-left: -1.3125rem;
     display: block;
     padding-right: 1em;
     padding-left: 1.25em;
