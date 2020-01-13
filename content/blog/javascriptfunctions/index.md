@@ -61,7 +61,25 @@ foo();
 
 **this**
 
-Someone would think that the this keyword bound to the function, however in some cases this is not true as sometimes **this** gets lets when declaring inside a function.
+The this keyword in function is attached to the scope of the object it was declared.
+
+```js
+const myObj = {
+  zips: ['1222', '0202'],
+  Zips: function() {
+    this.zips.forEach(function(zip) {
+      console.log(`the zip is ${zip}`);
+    });
+  },
+};
+
+myObj.Zips();
+// Will print
+// the zip is 1222
+// the zip is 0202
+```
+
+However, Someone would think that the this keyword bound to the function, however in some cases this is not true as sometimes **this** gets lets when declaring inside a function.
 
 ```js
 const person = {
@@ -112,9 +130,45 @@ const name = p.Name;
 console.log(name()); // undefined as this is not bind to the object
 ```
 
-**_When dealing with this and functions we should be aware of this._**
+[Click for more information about bind function property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
 
-However, with the new arrow functions (I will explain later about this type)
+**_When dealing with this and functions we should be aware._**
+
+However, with the new type of functions named **arrow functions** the this keyword is bound to the global scope from where it is attached and it does not have this keyword by itself.
+
+Let's check an example:
+
+This will print the name result from the name property
+
+```js
+const worksobj = {
+  name: 'frank',
+  Name: function() {
+    return this.name;
+  },
+};
+
+let res = worksobj.Name();
+console.log(res); // frank
+```
+
+But if we use **arrow** functions it will be undefined as arrow functions will grab this from global, which it is undefined.
+
+```js
+const worksobj = {
+  name: 'frank',
+  Name: () => {
+    return this.name;
+  },
+};
+
+let res = worksobj.Name();
+console.log(res); // undefined
+```
+
+It is important to be aware that arrow functions does not have **this** bound like function keywords do.
+
+**Closures**
 
 ## Arrow functions
 
