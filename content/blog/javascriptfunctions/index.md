@@ -4,7 +4,7 @@ date: '2020-01-13'
 description: 'In this blog I will write about arrow and Functions in js.'
 ---
 
-**Functions** in javascript are an important block of scope in the language. They are fundamental to create reausable code and declare private pieces of code.
+**Functions** in javascript are an important block of scope in the language. They are fundamental to create reausable code and declare private pieces of code. Javascript functions are also objects, they can be assigned properties and methods, and also if they become a property from an object the **this** becomes the context of the function.
 
 There are two types of functions:
 
@@ -41,7 +41,7 @@ function myFunction(params) {
 
 **Hoisting**
 
-Hoisting is when function declarations or variables are moved from where they appear in the code to the top by the compiler. This means functions can be declared anywhere on the code and still be defined.
+Hoisting is when function declarations with the function keyword are defined and run before the code where the functions exists runs.
 
 For example this:
 
@@ -59,7 +59,16 @@ function foo() {}
 foo();
 ```
 
-**this**
+However, function expressions are not hoisted,
+this will cause an error:
+
+```js
+// undefined
+foo(); // highlight-line
+const foo = function() {};
+```
+
+**this keyword**
 
 The this keyword in function is attached to the scope of the object it was declared.
 
@@ -170,19 +179,52 @@ It is important to be aware that arrow functions does not have **this** bound li
 
 **Closures**
 
+Functions can be declared inside functions and they can have access to the variables outside of their scope where they were defined.
+
+This is a closure:
+
+```javascript
+function closure() {
+  let count = 0;
+  // anonymous function
+  return function() {
+    count = count + 1; // highlight-line
+    return count;
+  };
+}
+
+let count = closure();
+console.log(count()); // 1 <=
+console.log(count()); // 2 <=
+```
+
+The above example shows the power of closures, as it has access to the scope from the outer function.
+
 ## Arrow functions
 
-Something to note here is that **arrow functions were never meant to replace function declarations**.
+Something to note here is that **arrow functions were never meant to replace function declarations**, as arrow functions have different charactersitics compared to functions defined with **function** keyword.
 
-Arrow functions are a short way to declare functions since the syntax is short, however they lack important properties that functions declarations have, for instance: **this** keyword and lexical scope.
+Arrow functions are a short way to declare functions since the syntax is short, however they lack important properties that functions declarations have, for instance: **this** keyword and lexical scope. **Parameters** go inside the parenthesis separated by a comma.
 
 Here is the syntax:
 
 ```javascript
-const myFunction = () => '';
+const myFunction = (a, b) => '';
 ```
 
-Return is implicit when declaring arrow functions, this means the return keyword should not be declared when writing functions like the above.
+These are the same function:
+
+```js
+function Foo() {
+  return '';
+}
+```
+
+```js
+const foo = () => '';
+```
+
+**Return** is implicit when declaring arrow functions, this means the return keyword should not be declared when writing functions like the above.
 
 However, when arrow functions grow these could be declared as below:
 brakets after the arrow and return keyword should be declared.

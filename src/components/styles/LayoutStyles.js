@@ -7,9 +7,6 @@ const LayoutStyles = styled.div`
   li {
     list-style: none;
   }
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .main-header .anchor-header {
     font-size: 0.6em;
@@ -20,7 +17,9 @@ const LayoutStyles = styled.div`
     font-size: 0em;
   } */
   .container {
-    max-width: 42em;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2.625rem 1.3125rem;
   }
   .social-links ul {

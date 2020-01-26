@@ -6,14 +6,14 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm, scale } from '../utils/typography';
 
-const PostStyles = styled.div`
+const PostStyles = styled.article`
   * {
     box-sizing: border-box;
   }
   /* padding: 1em; */
   p {
     padding: 0;
-    margin-bottom: 1em;
+    margin: 1em 0;
   }
   h2 {
     padding: 0;

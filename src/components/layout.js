@@ -47,9 +47,7 @@ function Layout({ location, title, children }) {
             <ul>
               {social.map(({ name, url }) => (
                 <li key={name}>
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {name}
-                  </a>
+                  <a href={url}>{name}</a>
                 </li>
               ))}
             </ul>

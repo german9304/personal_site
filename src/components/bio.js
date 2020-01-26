@@ -32,19 +32,19 @@ function Bio() {
   return (
     <BioStyles>
       <div className="bio">
-        {/* <Image
+        <Image
           fixed={data.avatar.childImageSharp.fixed}
           alt={author}
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
             minWidth: 50,
-            borderRadius: `100%`,
+            borderRadius: `50%`,
           }}
           imgStyle={{
             borderRadius: `50%`,
           }}
-        /> */}
+        />
         <div className="info">
           <p>
             My name is <strong>{author}</strong> and I received a Bachelors
