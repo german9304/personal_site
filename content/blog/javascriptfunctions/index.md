@@ -1,7 +1,7 @@
 ---
 title: 'javascript: functions'
 date: '2020-01-13'
-description: 'In this blog I will write about arrow and Functions in js.'
+description: 'In this blog I will write about javascript functions'
 ---
 
 **Functions** in javascript are an important block of scope in the language. They are fundamental to create reausable code and declare private pieces of code. Javascript functions are also objects, they can be assigned properties and methods, and also if they become a property from an object the **this** becomes the context of the function.

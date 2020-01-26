@@ -11,8 +11,7 @@ const LayoutStyles = styled.div`
   .main-header .anchor-header {
     font-size: 0.6em;
   }
-  .main-header h1 {
-  }
+
   /* .main-header a {
     font-size: 0em;
   } */

@@ -29,6 +29,7 @@ function Layout({ location, title, children }) {
               ...scale(1.5),
               marginBottom: rhythm(0.8),
               marginTop: 0,
+              fontSize: '3rem',
             }}
           >
             <Link
