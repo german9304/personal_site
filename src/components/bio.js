@@ -47,16 +47,8 @@ function Bio() {
         />
         <div className="info">
           <p>
-            My name is <strong>{author}</strong> and I received a Bachelors
-            Degree in Computer Science from California State University Chico.
-          </p>
-          <p>
-            I live in San Diego and work as a Front End engineer, but I like to
-            build backend stuff as well.
-          </p>
-          <p>
-            Through this website I will post stuff I learn and interesting
-            things about computer science and web development.
+            My name is <strong>{author}</strong> and I'm a software engineer skilled in computer science, algorithms, web development, c/c++, javaScript, golang,
+            java, python and rust. 
           </p>
         </div>
       </div>
